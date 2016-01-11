@@ -68,6 +68,7 @@
 	}
 #### 返回栈
 　　在android中系统是通过任务(Task)来管理Activity的，一个任务就是一组存放在栈里的Activity的集合，这个栈也被称作返回栈(Back Stack)，栈是一种先进后出的数据结构，在默认情况下，每当我们启动一个新的Activity，他会在返回栈中入栈，并处于栈顶的位置。每当我们按下Back键或调用finish()方法去销毁一个Activity时，处于栈顶的Activity就会出栈，这时前一个栈的Activity就会重新处于栈顶的位置，系统总是会显示处于栈顶的活动给用户。返回栈是如何管理Activity入栈出栈操作的。
+![](http://7xp6n9.com1.z0.glb.clouddn.com/QQ%E5%9B%BE%E7%89%8720160110003405.png)
 #### 活动状态
 　　每个活动在其声明周期中最多可能会有四种状态  
 　　1. 运行状态  
@@ -86,9 +87,9 @@
 　　2. onStart  
 　　　　这个方法在Activity由不可见变为可见的时候调用  
 　　3. onResume  
-　　　　这个方法在Activity准备好和yoghurt进行交互的时候调用，此时Activity一定位于返回栈的顶部，并且处于运行状态。   
+　　　　这个方法在Activity准备好和用户进行交互的时候调用，此时Activity一定位于返回栈的顶部，并且处于运行状态。   
 　　4. onPause  
-　　　　这个方法在系统转呗去启动或恢复另一个Activity的时候调用。我们通常会在这个方法中间一些消耗CPU的资源释放掉，以及保存一些关键数据，但这个方法的执行速度一定要快，不然会影响到新的栈顶Activity的使用。  
+　　　　这个方法在系统准备去启动或恢复另一个Activity的时候调用。我们通常会在这个方法中间一些消耗CPU的资源释放掉，以及保存一些关键数据，但这个方法的执行速度一定要快，不然会影响到新的栈顶Activity的使用。  
 　　5. onStop  
 　　　　这个方法在Activity完全不可见的时候调用。他和onPause的主要区别在于，如果启动新的Activity是一个对话框式的Activity，那么onPause方法会得到执行，而onStop方法不会执行。  
 　　6. onDestroy  
